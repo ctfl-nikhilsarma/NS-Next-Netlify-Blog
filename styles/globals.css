@@ -33,3 +33,7 @@ code {
   justify-content: center;
   align-items: center;
 }
+
+.size{
+  width: 50px;
+}

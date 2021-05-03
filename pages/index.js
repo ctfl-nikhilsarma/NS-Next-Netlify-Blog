@@ -1,12 +1,13 @@
 import Head from 'next/head'
 
-import { fetchEntries } from '@utils/contentfulPosts'
+import { fetchEntries } from '@components/contentfulPosts'
+import Post from '@components/Post'
 
 import Header from '@components/Header'
 import Footer from '@components/Footer'
-import blogPost from '@components/Post'
 
-export default function Home() {
+export default function Home({ posts }) {
+  console.log(posts.image)
   return (
     <div className="container">
       <Head>
@@ -15,15 +16,17 @@ export default function Home() {
       </Head>
 
       <main>
-        <Header />
+        <Header />      
+      
         <div className="posts">
           {posts.map((p) => {
-            return <blogPost key={p.blogTitle} date={p.blogPublishDate} title={p.blogTitle} />
+            return <Post key={p.date} date={p.date} image={p.image.fields} title={p.title} />
           })}
         </div>
+
       </main>
 
-      <Footer />      
+      <Footer />
     </div>
   )
 }

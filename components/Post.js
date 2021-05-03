@@ -1,9 +1,9 @@
-function blogPost({ blogTitle, blogEntry, blogPublishDate }) {
+function Post({ date, image, title }) {
     let { file, description } = image
   
     return (
       <div className="post">
-        <img alt={description} src={`https:${file.url}`} />
+        <img alt={description} src={file.url} className="size"/>
         <div className="description">{description}</div>
         <div className="text">
           <h2>{title}</h2>
@@ -13,4 +13,4 @@ function blogPost({ blogTitle, blogEntry, blogPublishDate }) {
     )
   }
   
-  export default blogPost
+  export default Post
